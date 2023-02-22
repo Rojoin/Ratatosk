@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private Position pos;
+    uint jumpCount;
+    float timer;
+    float addTime;
     void Start()
     {
-
+        jumpCount = 0;
+        pos = Position.Right;
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public void SetPosition(Position side)
     {
         pos = side;
+        jumpCount++;
     }
 
     void ChangePosition()
@@ -43,4 +48,5 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+    uint GetScore() => jumpCount;
 }
