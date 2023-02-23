@@ -19,8 +19,8 @@ public class UIScore : MonoBehaviour
         textMesh.text = score.ToString("0");
     }
 
-   public void SetScore(uint score)
+   public void SetScore(uint currentScore)
     {
-        this.score = score;
+        this.score = currentScore;
     }
 }
