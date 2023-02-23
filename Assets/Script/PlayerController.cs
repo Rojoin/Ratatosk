@@ -2,30 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Slider timerSlider;
+   
     public enum Position
     {
         Left,
         Right
     }
-
+     
     private Position pos;
     uint jumpCount;
-    float timer;
-    float addTime;
+    public float gameSpeed;
+    public float acornValue;
+    public float timer;
+    private float currentVelocity = 100;
     void Start()
     {
         jumpCount = 0;
         pos = Position.Right;
+        timerSlider.maxValue = timer;
+        timerSlider.value = timer;
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
         ChangePosition();
+        LoseTime();
+       float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
+        timerSlider.value = currentTimer;
     }
 
     Position GetPosition() => pos;
@@ -36,6 +45,27 @@ public class PlayerController : MonoBehaviour
         jumpCount++;
     }
 
+    private void LoseTime()
+    {
+        //multiplicar por gameSpeed
+        timer -= Time.deltaTime* gameSpeed;
+        if (timer <= 0.0f)
+        {
+            timer = 0.0f;
+        }
+    }
+
+    public void AddTime()
+    {
+        //Hacer escalados de tiempo
+        timer += Time.deltaTime* acornValue;
+        if (timer > 30.0f)
+        {
+            timer = 30.0f;
+        }
+    }
+
+   
     void ChangePosition()
     {
         switch (pos)
@@ -47,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector3(0.59f, transform.position.y, transform.position.z);
                 break;
         }
+      
     }
     uint GetScore() => jumpCount;
 }
