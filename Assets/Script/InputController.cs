@@ -27,12 +27,13 @@ public class InputController : MonoBehaviour
         if (left.isActive())
         {
          player.SetPosition(PlayerController.Position.Left);
-         
+         player.AddTime();
         }
         else if (right.isActive()) 
         {
          player.SetPosition(PlayerController.Position.Right);
-        
+
+            player.AddTime();
         }
      
 
