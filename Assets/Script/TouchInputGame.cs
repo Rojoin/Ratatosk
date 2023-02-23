@@ -6,32 +6,15 @@ using UnityEngine;
 public class TouchInputGame : MonoBehaviour
 {
     public string name;
-    // Start is called before the first frame update
-    private bool activeStatus;
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnMouseDown()
-    {
-        Debug.Log(name);
-        activeStatus = true;
-        
-
-    }
-
-    private void OnMouseUp()
-    {
-        activeStatus = false;
-    }
-
-  
-    public bool isActive() => activeStatus;
+    private bool activeStatus = false;
     
+ 
+    
+    private void OnMouseOver()
+    {
+        activeStatus = Input.GetMouseButtonDown(0) ? true : false;
+    }
+
+    public bool isActive() => activeStatus;
+
 }

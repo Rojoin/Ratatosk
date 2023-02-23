@@ -1,39 +1,43 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Slider timerSlider;
-   
     public enum Position
     {
         Left,
         Right
     }
-     
     private Position pos;
+
+    public Slider timerSlider;
+    public UIScore uiScore;
     uint jumpCount;
     public float gameSpeed;
     public float acornValue;
     public float timer;
+    public float maxTimer;
     private float currentVelocity = 100;
+
     void Start()
     {
         jumpCount = 0;
         pos = Position.Right;
-        timerSlider.maxValue = timer;
+        timerSlider.maxValue = maxTimer;
         timerSlider.value = timer;
+        uiScore.SetScore(0);
     }
 
- 
+
     void Update()
     {
         ChangePosition();
         LoseTime();
-       float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
+        float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
         timerSlider.value = currentTimer;
     }
 
@@ -42,13 +46,11 @@ public class PlayerController : MonoBehaviour
     public void SetPosition(Position side)
     {
         pos = side;
-        jumpCount++;
     }
-
+    
     private void LoseTime()
     {
-        //multiplicar por gameSpeed
-        timer -= Time.deltaTime* gameSpeed;
+        timer -= Time.deltaTime * gameSpeed;
         if (timer <= 0.0f)
         {
             timer = 0.0f;
@@ -57,15 +59,14 @@ public class PlayerController : MonoBehaviour
 
     public void AddTime()
     {
-        //Hacer escalados de tiempo
-        timer += Time.deltaTime* acornValue;
-        if (timer > 30.0f)
+        timer += Time.deltaTime * acornValue;
+        if (timer > maxTimer)
         {
-            timer = 30.0f;
+            timer = maxTimer;
         }
     }
 
-   
+
     void ChangePosition()
     {
         switch (pos)
@@ -77,7 +78,18 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector3(0.59f, transform.position.y, transform.position.z);
                 break;
         }
-      
+
     }
     uint GetScore() => jumpCount;
+
+    public void ClimbNextBranch()
+    {
+        AddTime();
+        jumpCount++;
+        uiScore.SetScore(jumpCount);
+    }
+    void OnDrawGizmos()
+    {
+        timerSlider.value = timer;
+    }
 }
