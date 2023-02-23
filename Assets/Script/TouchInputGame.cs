@@ -22,9 +22,11 @@ public class TouchInputGame : MonoBehaviour
     {
         Debug.Log(name);
         activeStatus = true;
+        
+
     }
 
-    private void OnMouseExit()
+    private void OnMouseUp()
     {
         activeStatus = false;
     }
