@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    private TouchInputGame left;
-    private TouchInputGame right;
 
     [SerializeField] PlayerController player;
     // Start is called before the first frame update
+    private bool isTouchingLeft = false;
+    private bool isTouchingRight = false;
     void Start()
     {
-        left = gameObject.transform.GetChild(0).GetComponent<TouchInputGame>();
-        right = gameObject.transform.GetChild(1).GetComponent<TouchInputGame>();
-
+        isTouchingLeft = false;
+        isTouchingRight = false;
     }
 
     // Update is called once per frame
@@ -24,17 +23,46 @@ public class InputController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (left.isActive())
+
+        if (Input.touchCount > 0)
         {
-            player.SetPosition(PlayerController.Position.Left);
-            player.ClimbNextBranch();
+            Touch touch = Input.GetTouch(0);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+
+            {
+               if (touch.position.x < Screen.width / 2)
+                {
+                    isTouchingLeft = true;
+                    isTouchingRight = false;
+                    player.SetPosition(PlayerController.Position.Left);
+                    player.ClimbNextBranch();
+                }
+                else
+                {
+                    isTouchingLeft = false;
+                    isTouchingRight = true;
+                    player.SetPosition(PlayerController.Position.Right);
+                    player.ClimbNextBranch();
+                }
+            }
         }
-        else if (right.isActive())
+        else
         {
-            player.SetPosition(PlayerController.Position.Right);
-            player.ClimbNextBranch();
+            isTouchingLeft = false;
+            isTouchingRight = false;
         }
 
 
     }
+
+    public bool IsTouchingLeft()
+    {
+        return isTouchingLeft;
+    }
+
+    public bool IsTouchingRight()
+    {
+        return isTouchingRight;
+    }
+
 }

@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public enum Position
     {
         Left,
-        Right
+        Right,
+        Any
     }
     private Position pos;
 
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         pos = side;
     }
-    
+
     private void LoseTime()
     {
         timer -= Time.deltaTime * gameSpeed;
