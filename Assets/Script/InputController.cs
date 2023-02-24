@@ -9,6 +9,7 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     private bool isTouchingLeft = false;
     private bool isTouchingRight = false;
+    public TreeGenerator generator;
     void Start()
     {
         isTouchingLeft = false;
@@ -36,6 +37,7 @@ public class InputController : MonoBehaviour
                     isTouchingRight = false;
                     player.SetPosition(PlayerController.Position.Left);
                     player.ClimbNextBranch();
+                    generator.CyclePositions();
                 }
                 else
                 {
@@ -43,6 +45,8 @@ public class InputController : MonoBehaviour
                     isTouchingRight = true;
                     player.SetPosition(PlayerController.Position.Right);
                     player.ClimbNextBranch();
+                    generator.CyclePositions();
+                   
                 }
             }
         }

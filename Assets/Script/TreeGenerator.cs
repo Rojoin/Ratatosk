@@ -22,4 +22,19 @@ public class TreeGenerator : MonoBehaviour
     {
 
     }
+   public void CyclePositions()
+    {
+        //fijarse que se va del array
+        int x = 0;
+        foreach (var branches in branch)
+        {
+            x++;
+            if (x >branch.Length)
+            {
+                x = 0;
+                branches.SetFreePosition(Random.Range(0, 2));
+            }
+            branches.gameObject.transform.position = branchPlaces[x].position;
+        }
+    }
 }
