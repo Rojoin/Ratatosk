@@ -11,7 +11,7 @@ public class TreeGenerator : MonoBehaviour
         int x = 0;
         foreach (var branches in branch)
         {
-            branches.SetFreePosition(x!= 0 ?Random.Range(0,2):2);
+            branches.SetFreePosition(Random.Range(0,2));
             branches.gameObject.transform.position = branchPlaces[x].position;
             x++;
         }
@@ -28,13 +28,13 @@ public class TreeGenerator : MonoBehaviour
         int x = 0;
         foreach (var branches in branch)
         {
-            x++;
+           // x++;
             if (x >branch.Length)
             {
                 x = 0;
                 branches.SetFreePosition(Random.Range(0, 2));
             }
-            branches.gameObject.transform.position = branchPlaces[x].position;
+         //   branches.gameObject.transform.position = branchPlaces[x].position;
         }
     }
 }
