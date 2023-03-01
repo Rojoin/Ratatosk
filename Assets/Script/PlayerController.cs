@@ -27,11 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool aliveState = true;
     void Start()
     {
-        jumpCount = 0;
-        pos = Position.Right;
-        timerSlider.maxValue = maxTimer;
-        timerSlider.value = timer;
-        uiScore.SetScore(0);
+        Reset();
     }
 
 
@@ -55,6 +51,15 @@ public class PlayerController : MonoBehaviour
 
     Position GetPosition() => pos;
 
+    public void Reset()
+    {
+        jumpCount = 0;
+        pos = Position.Right;
+        timerSlider.maxValue = maxTimer;
+        timerSlider.value = timer;
+        uiScore.SetScore(0);
+        aliveState = true;
+    }
     public bool isAlive() => aliveState;
     public void SetPosition(Position side)
     {

@@ -23,8 +23,18 @@ public class TreeGenerator : MonoBehaviour
     {
 
     }
-
-  public  Branch GetCurrentBranch()
+    public void Reset()
+    {
+        int x = 0;
+        foreach (var branches in branch)
+        {
+            branches.id = x;
+            branches.SetFreePosition(x != 0 ? Random.Range(0, 2) : 2);
+            branches.gameObject.transform.position = branchPlaces[x].position;
+            x++;
+        }
+    }
+    public  Branch GetCurrentBranch()
     {
        
 
