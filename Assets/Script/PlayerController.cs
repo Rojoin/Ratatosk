@@ -81,10 +81,10 @@ public class PlayerController : MonoBehaviour
         switch (pos)
         {
             case Position.Left:
-                transform.position = new Vector3(-0.65f, transform.position.y, transform.position.z);
+                transform.position = tree.GetCurrentBranch().GetLeftPosition().position;
                 break;
             case Position.Right:
-                transform.position = new Vector3(0.59f, transform.position.y, transform.position.z);
+                transform.position = tree.GetCurrentBranch().GetRightPosition().position;
                 break;
         }
 

@@ -57,7 +57,8 @@ public class Branch : MonoBehaviour
 
     }
 
-
+    public Transform GetLeftPosition() => Left;
+    public Transform GetRightPosition() => Right;
     public void SetFreePosition(int x)
     {
         freePosition = (PlayerController.Position)x;
