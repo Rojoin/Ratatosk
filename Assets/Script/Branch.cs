@@ -8,6 +8,7 @@ public class Branch : MonoBehaviour
 
     [SerializeField] Transform Left;
     [SerializeField] Transform Right;
+    public int id;
     public GameObject bush;
     public GameObject acorn;
     bool isPlayerOn = false;
