@@ -11,7 +11,8 @@ public class TreeGenerator : MonoBehaviour
         int x = 0;
         foreach (var branches in branch)
         {
-            branches.SetFreePosition(Random.Range(0,2));
+            branches.id = x;
+            branches.SetFreePosition(x != 0 ? Random.Range(0, 2) : 2);
             branches.gameObject.transform.position = branchPlaces[x].position;
             x++;
         }
@@ -22,19 +23,40 @@ public class TreeGenerator : MonoBehaviour
     {
 
     }
-   public void CyclePositions()
+
+  public  Branch GetCurrentBranch()
+    {
+       
+
+        foreach (var branch1 in branch)
+        {
+            if (branch1.id == 0)
+            {
+                return branch1;
+            }
+        }
+
+        return null;
+    }
+    public void CyclePositions()
     {
         //fijarse que se va del array
-        int x = 0;
-        foreach (var branches in branch)
+        foreach (var branch1 in branch)
         {
-           // x++;
-            if (x >branch.Length)
+
+            if (branch1.id == 0)
             {
-                x = 0;
-                branches.SetFreePosition(Random.Range(0, 2));
+                branch1.SetFreePosition(Random.Range(0, 2));
+                branch1.gameObject.transform.position = branchPlaces[branchPlaces.Length-1].position;
+                branch1.id = branch.Length-1;
             }
-         //   branches.gameObject.transform.position = branchPlaces[x].position;
+            else
+            {
+                branch1.gameObject.transform.position = branchPlaces[branch1.id - 1].position;
+                branch1.id--;
+
+            }
         }
+
     }
 }

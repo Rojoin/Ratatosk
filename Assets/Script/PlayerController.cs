@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] TreeGenerator tree;
     public enum Position
     {
         Left,
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         LoseTime();
         float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
         timerSlider.value = currentTimer;
+        CheckBranchPosition();
     }
 
     Position GetPosition() => pos;
@@ -67,7 +69,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private void CheckBranchPosition()
+    {
+        if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
+        {
+            Debug.Log("GameOver");
+        }
+    }
     void ChangePosition()
     {
         switch (pos)
