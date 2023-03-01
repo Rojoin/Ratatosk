@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float timer;
     public float maxTimer;
     private float currentVelocity = 100;
-
+    private bool aliveState;
     void Start()
     {
         jumpCount = 0;
@@ -37,15 +37,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (aliveState)
+        {
+            
         ChangePosition();
         LoseTime();
         float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
         timerSlider.value = currentTimer;
         CheckBranchPosition();
+        }
+        else
+        {
+            Debug.Log("GameOver");
+        }
+        
     }
 
     Position GetPosition() => pos;
 
+    public bool isAlive() => aliveState;
     public void SetPosition(Position side)
     {
         pos = side;
@@ -73,7 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
         {
-            Debug.Log("GameOver");
+            aliveState = false;
         }
     }
     void ChangePosition()
