@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float acornValue;
     public float timer;
     public float maxTimer;
+    public float normalizeTime = 1.0f;
     private float currentVelocity = 100;
     private bool aliveState = true;
     void Start()
@@ -38,9 +39,8 @@ public class PlayerController : MonoBehaviour
             
         ChangePosition();
         LoseTime();
-        float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
-        timerSlider.value = currentTimer;
-        CheckBranchPosition();
+            //float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
+            timerSlider.value = timer;
         }
         else
         {
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         pos = Position.Right;
         timerSlider.maxValue = maxTimer;
         timerSlider.value = timer;
+        timer = maxTimer;
         uiScore.SetScore(0);
         aliveState = true;
     }
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if (timer <= 0.0f)
         {
             timer = 0.0f;
+            aliveState = false;
         }
     }
 
@@ -89,6 +91,10 @@ public class PlayerController : MonoBehaviour
         if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
         {
             aliveState = false;
+        }
+        else
+        {
+            jumpCount++;
         }
     }
     void ChangePosition()
@@ -109,7 +115,7 @@ public class PlayerController : MonoBehaviour
     public void ClimbNextBranch()
     {
         AddTime();
-        jumpCount++;
+        CheckBranchPosition();
         uiScore.SetScore(jumpCount);
     }
     void OnDrawGizmos()
