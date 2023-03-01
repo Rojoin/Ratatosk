@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float timer;
     public float maxTimer;
     private float currentVelocity = 100;
-    private bool aliveState;
+    private bool aliveState = true;
     void Start()
     {
         jumpCount = 0;

@@ -24,36 +24,39 @@ public class InputController : MonoBehaviour
 
     void MovePlayer()
     {
-
-        if (Input.touchCount > 0)
+        if (player.isAlive())
         {
-            Touch touch = Input.GetTouch(0);
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
 
+            if (Input.touchCount > 0)
             {
-               if (touch.position.x < Screen.width / 2)
+                Touch touch = Input.GetTouch(0);
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+
                 {
-                    isTouchingLeft = true;
-                    isTouchingRight = false;
-                    player.SetPosition(PlayerController.Position.Left);
-                    player.ClimbNextBranch();
-                    generator.CyclePositions();
-                }
-                else
-                {
-                    isTouchingLeft = false;
-                    isTouchingRight = true;
-                    player.SetPosition(PlayerController.Position.Right);
-                    player.ClimbNextBranch();
-                    generator.CyclePositions();
-                   
+                    if (touch.position.x < Screen.width / 2)
+                    {
+                        isTouchingLeft = true;
+                        isTouchingRight = false;
+                        player.SetPosition(PlayerController.Position.Left);
+                        player.ClimbNextBranch();
+                        generator.CyclePositions();
+                    }
+                    else
+                    {
+                        isTouchingLeft = false;
+                        isTouchingRight = true;
+                        player.SetPosition(PlayerController.Position.Right);
+                        player.ClimbNextBranch();
+                        generator.CyclePositions();
+
+                    }
                 }
             }
-        }
-        else
-        {
-            isTouchingLeft = false;
-            isTouchingRight = false;
+            else
+            {
+                isTouchingLeft = false;
+                isTouchingRight = false;
+            }
         }
 
 
