@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         Right,
         Any
     }
-    private Position pos;
+    [SerializeField] Position pos;
 
     public Slider timerSlider;
     public UIScore uiScore;
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            tree.GetCurrentBranch().SetPlayerOnBranch(true);
             jumpCount++;
         }
     }

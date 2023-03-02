@@ -23,23 +23,28 @@ public class Branch : MonoBehaviour
         switch (freePosition)
         {
             case PlayerController.Position.Left:
+
                 acorn.transform.position = Left.position;
                 bush.transform.position = Right.position;
-                AcornMeshController(true);
+                AcornMeshController(!isPlayerOn);
                 BushMeshController(true);
+
                 break;
             case PlayerController.Position.Right:
+
                 acorn.transform.position = Right.position;
                 bush.transform.position = Left.position;
-                AcornMeshController(true);
+                AcornMeshController(!isPlayerOn);
                 BushMeshController(true);
+
                 break;
             case PlayerController.Position.Any:
+
                 AcornMeshController(false);
                 BushMeshController(false);
+
                 break;
-            default:
-                break;
+
         }
     }
 
@@ -51,8 +56,6 @@ public class Branch : MonoBehaviour
         {
             meshAcorn[i].enabled = status;
         }
-
-
     }
 
     private void BushMeshController(bool status)
@@ -72,5 +75,5 @@ public class Branch : MonoBehaviour
         freePosition = (PlayerController.Position)x;
     }
     public PlayerController.Position GetFreePosition() => freePosition;
-    public bool isPlayerOnBranch() => isPlayerOn;
+    public void SetPlayerOnBranch(bool status) => isPlayerOn = status;
 }
