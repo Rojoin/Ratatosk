@@ -25,36 +25,44 @@ public class Branch : MonoBehaviour
             case PlayerController.Position.Left:
                 acorn.transform.position = Left.position;
                 bush.transform.position = Right.position;
-                PropsMeshController(true);
+                AcornMeshController(true);
+                BushMeshController(true);
                 break;
             case PlayerController.Position.Right:
                 acorn.transform.position = Right.position;
                 bush.transform.position = Left.position;
-                PropsMeshController(true);
+                AcornMeshController(true);
+                BushMeshController(true);
                 break;
             case PlayerController.Position.Any:
-                PropsMeshController(false);
+                AcornMeshController(false);
+                BushMeshController(false);
                 break;
             default:
                 break;
         }
     }
 
-    private void PropsMeshController(bool status)
+    public void AcornMeshController(bool status)
     {
         MeshRenderer[] meshAcorn = acorn.GetComponentsInChildren<MeshRenderer>();
-        MeshRenderer[] meshBush = bush.GetComponentsInChildren<MeshRenderer>();
 
         for (int i = 0; i < meshAcorn.Length; i++)
         {
             meshAcorn[i].enabled = status;
         }
 
+
+    }
+
+    private void BushMeshController(bool status)
+    {
+        MeshRenderer[] meshBush = bush.GetComponentsInChildren<MeshRenderer>();
+
         for (int i = 0; i < meshBush.Length; i++)
         {
             meshBush[i].enabled = status;
         }
-
     }
 
     public Transform GetLeftPosition() => Left;
