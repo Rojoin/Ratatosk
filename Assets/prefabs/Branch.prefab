@@ -83,6 +83,7 @@ MonoBehaviour:
   freePosition: 0
   Left: {fileID: 4256188048176072267}
   Right: {fileID: 1476793445314079105}
+  id: 0
   bush: {fileID: 115252140568029044}
   acorn: {fileID: 8610895165647337334}
 --- !u!1 &4768485897968214078
