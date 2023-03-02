@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     [SerializeField] TreeGenerator tree;
+
     void Start()
     {
         
@@ -25,7 +25,8 @@ public class GameOverScreen : MonoBehaviour
     }
     public void ReturnToMenu()
     {
-        Application.Quit();
+        player.SetGameState(false);
+        this.gameObject.SetActive(false);
     }
     
 }
