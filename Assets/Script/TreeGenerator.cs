@@ -59,6 +59,7 @@ public class TreeGenerator : MonoBehaviour
                 branch1.SetFreePosition(Random.Range(0, 2));
                 branch1.gameObject.transform.position = branchPlaces[branchPlaces.Length-1].position;
                 branch1.id = branch.Length-1;
+                branch1.SetPlayerOnBranch(false);
             }
             else
             {
