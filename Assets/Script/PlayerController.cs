@@ -26,27 +26,29 @@ public class PlayerController : MonoBehaviour
     public float normalizeTime = 1.0f;
     private float currentVelocity = 100;
     private bool aliveState = true;
+    private bool gameplayState = false;
+    private bool firstTimeState = false;
     void Start()
     {
-        Reset();
+
     }
 
 
     void Update()
     {
+        if (!gameplayState) return;
         if (aliveState)
         {
-            
-        ChangePosition();
-        LoseTime();
-            //float currentTimer = Mathf.SmoothDamp(timerSlider.value, timer, ref currentVelocity, 100 * Time.deltaTime);
+
+            ChangePosition();
+            LoseTime();
             timerSlider.value = timer;
         }
         else
         {
             Debug.Log("GameOver");
         }
-        
+
     }
 
     Position GetPosition() => pos;
@@ -123,4 +125,9 @@ public class PlayerController : MonoBehaviour
     {
         timerSlider.value = timer;
     }
+
+    public bool IsGameplayOn() => gameplayState;
+    public bool IsFirstTime() => firstTimeState;
+    public void SetGameState(bool status) => gameplayState = status;
+    public void SetFirstTimeState(bool status) => firstTimeState = status;
 }

@@ -6,15 +6,8 @@ public class InputController : MonoBehaviour
 {
 
     [SerializeField] PlayerController player;
-    // Start is called before the first frame update
-    private bool isTouchingLeft = false;
-    private bool isTouchingRight = false;
     public TreeGenerator generator;
-    void Start()
-    {
-        isTouchingLeft = false;
-        isTouchingRight = false;
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -22,54 +15,30 @@ public class InputController : MonoBehaviour
         MovePlayer();
     }
 
-    void MovePlayer()
+    private void MovePlayer()
     {
-        if (player.isAlive())
+        if (!player.IsGameplayOn()) return;
+        if (!player.isAlive()) return;
+        if (Input.touchCount <= 0) return;
+        Touch touch = Input.GetTouch(0);
+        if (Input.GetTouch(0).phase != TouchPhase.Began) return;
+        if (touch.position.x < Screen.width / 2)
         {
+            player.SetPosition(PlayerController.Position.Left);
+            generator.CyclePositions();
+            player.ClimbNextBranch();
+        }
+        else
+        {
+            player.SetPosition(PlayerController.Position.Right);
+            generator.CyclePositions();
+            player.ClimbNextBranch();
 
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
-
-                {
-                    if (touch.position.x < Screen.width / 2)
-                    {
-                        isTouchingLeft = true;
-                        isTouchingRight = false;
-                        player.SetPosition(PlayerController.Position.Left);
-                        generator.CyclePositions();
-                        player.ClimbNextBranch();
-                    }
-                    else
-                    {
-                        isTouchingLeft = false;
-                        isTouchingRight = true;
-                        player.SetPosition(PlayerController.Position.Right);
-                        generator.CyclePositions();
-                        player.ClimbNextBranch();
-
-                    }
-                }
-            }
-            else
-            {
-                isTouchingLeft = false;
-                isTouchingRight = false;
-            }
         }
 
 
     }
 
-    public bool IsTouchingLeft()
-    {
-        return isTouchingLeft;
-    }
 
-    public bool IsTouchingRight()
-    {
-        return isTouchingRight;
-    }
 
 }
