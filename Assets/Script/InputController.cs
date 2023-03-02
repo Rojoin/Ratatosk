@@ -38,16 +38,16 @@ public class InputController : MonoBehaviour
                         isTouchingLeft = true;
                         isTouchingRight = false;
                         player.SetPosition(PlayerController.Position.Left);
-                        player.ClimbNextBranch();
                         generator.CyclePositions();
+                        player.ClimbNextBranch();
                     }
                     else
                     {
                         isTouchingLeft = false;
                         isTouchingRight = true;
                         player.SetPosition(PlayerController.Position.Right);
-                        player.ClimbNextBranch();
                         generator.CyclePositions();
+                        player.ClimbNextBranch();
 
                     }
                 }
