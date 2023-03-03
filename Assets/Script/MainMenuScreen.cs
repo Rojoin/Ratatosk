@@ -30,6 +30,6 @@ public class MainMenuScreen : MonoBehaviour
 
     public void Exit()
     {
-        this.gameObject.SetActive(false);
+        Application.Quit();
     }
 }
