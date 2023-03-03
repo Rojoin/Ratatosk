@@ -20,14 +20,18 @@ public class PlayerController : MonoBehaviour
     public UIScore uiScore;
     uint jumpCount;
     public float gameSpeed;
+    private float totalTime = 0.0f;
+    public float timeToSpeedUp = 10.0f;
+    public float gameSpeedModifier = 1.0f;
+    public float speedValue = 0.25f;
     public float acornValue;
     public float timer;
     public float maxTimer;
     public float normalizeTime = 1.0f;
-    private float currentVelocity = 100;
     private bool aliveState = true;
     private bool gameplayState = false;
     private bool firstTimeState = false;
+
     void Start()
     {
 
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
             ChangePosition();
             LoseTime();
+            CheckTimePass();
             timerSlider.value = timer;
         }
         else
@@ -62,6 +67,8 @@ public class PlayerController : MonoBehaviour
         timer = maxTimer;
         uiScore.SetScore(0);
         aliveState = true;
+        gameSpeedModifier = 1.0f;
+        totalTime = 0.0f;
     }
     public bool isAlive() => aliveState;
     public void SetPosition(Position side)
@@ -71,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void LoseTime()
     {
-        timer -= Time.deltaTime * gameSpeed;
+        timer -= Time.deltaTime * gameSpeed * gameSpeedModifier;
         if (timer <= 0.0f)
         {
             timer = 0.0f;
@@ -130,4 +137,13 @@ public class PlayerController : MonoBehaviour
     public bool IsFirstTime() => firstTimeState;
     public void SetGameState(bool status) => gameplayState = status;
     public void SetFirstTimeState(bool status) => firstTimeState = status;
+    private void CheckTimePass()
+    {
+        totalTime += Time.deltaTime;
+        if (totalTime >= timeToSpeedUp)
+        {
+            gameSpeedModifier += speedValue;
+            totalTime = 0.0f;
+        }
+    }
 }

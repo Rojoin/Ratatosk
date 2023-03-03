@@ -1321,6 +1321,9 @@ MonoBehaviour:
   timerSlider: {fileID: 322104355}
   uiScore: {fileID: 139249122}
   gameSpeed: 1.95
+  timeToSpeedUp: 10
+  gameSpeedModifier: 1
+  speedValue: 0.75
   acornValue: 500
   timer: 30
   maxTimer: 30
