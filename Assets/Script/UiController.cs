@@ -6,8 +6,9 @@ public class UiController : MonoBehaviour
 {
     [SerializeField] GameObject screenGameOver;
     [SerializeField] GameObject screenMenu;
-    // [SerializeField] GameObject screenPause;
+    [SerializeField] GameObject screenCredits;
     [SerializeField] PlayerController player;
+    public bool creditsOn = false;
     void Start()
     {
 
@@ -23,7 +24,9 @@ public class UiController : MonoBehaviour
         else
         {
             MainMenuScreen();
+            CreditsScreen();
         }
+
     }
     void ScreenVisibility(GameObject screen, bool status)
     {
@@ -35,7 +38,22 @@ public class UiController : MonoBehaviour
     }
     void MainMenuScreen()
     {
-        ScreenVisibility(screenMenu, !player.IsGameplayOn());
+        ScreenVisibility(screenMenu, !player.IsGameplayOn() && !creditsOn);
     }
+    void CreditsScreen()
+    {
+        ScreenVisibility(screenCredits, creditsOn);
 
+    }
+    public void SetCredits()
+    {
+        if (creditsOn)
+        {
+            creditsOn = false;
+        }
+        else
+        {
+            creditsOn = true;
+        }
+    }
 }
