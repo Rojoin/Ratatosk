@@ -3,7 +3,12 @@ guid: 380c0fd416028184382dcdca3520f008
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ARDILLA
+    second: {fileID: 2100000, guid: 73876a44ce67973408f743d01eefa0e1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
