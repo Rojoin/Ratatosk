@@ -20,6 +20,10 @@ public class UiController : MonoBehaviour
         if (player.IsGameplayOn())
         {
             GameOverScreen();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                player.SetGameState(false);
+            }
         }
         else
         {
