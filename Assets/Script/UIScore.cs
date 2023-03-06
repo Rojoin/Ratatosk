@@ -23,4 +23,5 @@ public class UIScore : MonoBehaviour
     {
         this.score = currentScore;
     }
+    public float GetScore() => score;
 }
