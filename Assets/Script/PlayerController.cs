@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] TreeGenerator tree;
+
     public enum Position
     {
         Left,
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Position pos;
 
     public Slider timerSlider;
+    public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
     public float gameSpeed;
@@ -31,6 +33,9 @@ public class PlayerController : MonoBehaviour
     private bool aliveState = true;
     private bool gameplayState = false;
     private bool firstTimeState = false;
+    private int jumpsBeforeSpeedUp = 0;
+    [SerializeField] int jumpMax = 100;
+
 
     void Start()
     {
@@ -69,6 +74,10 @@ public class PlayerController : MonoBehaviour
         aliveState = true;
         gameSpeedModifier = 1.0f;
         totalTime = 0.0f;
+        normalizeTime = 1.0f;
+        sliderImage.fillAmount = 1.0f;
+        
+
     }
     public bool isAlive() => aliveState;
     public void SetPosition(Position side)
@@ -105,19 +114,20 @@ public class PlayerController : MonoBehaviour
         {
             tree.GetCurrentBranch().SetPlayerOnBranch(true);
             jumpCount++;
+            jumpsBeforeSpeedUp++;
         }
     }
     void ChangePosition()
     {
-        switch (pos)
-        {
-            case Position.Left:
-                transform.position = tree.GetCurrentBranch().GetLeftPosition().position;
-                break;
-            case Position.Right:
-                transform.position = tree.GetCurrentBranch().GetRightPosition().position;
-                break;
-        }
+            switch (pos)
+            {
+                case Position.Left:
+                    transform.position = tree.GetCurrentBranch().GetLeftPosition().position;
+                    break;
+                case Position.Right:
+                    transform.position = tree.GetCurrentBranch().GetRightPosition().position;
+                    break;
+            }
 
     }
     uint GetScore() => jumpCount;
@@ -144,6 +154,13 @@ public class PlayerController : MonoBehaviour
         {
             gameSpeedModifier += speedValue;
             totalTime = 0.0f;
+        }
+        normalizeTime = timer / maxTimer;
+        sliderImage.fillAmount = normalizeTime;
+        if (jumpsBeforeSpeedUp == jumpMax)
+        {
+            jumpsBeforeSpeedUp = 0;
+            gameSpeed += speedValue/2;
         }
     }
 }

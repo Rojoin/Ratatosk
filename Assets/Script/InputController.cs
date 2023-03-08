@@ -6,8 +6,8 @@ public class InputController : MonoBehaviour
 {
 
     [SerializeField] PlayerController player;
-    public TreeGenerator generator;
-
+    public TreeGenerator tree;
+    private float lastMoveTime = 0.0f;
 
     // Update is called once per frame
     void Update()
@@ -18,22 +18,31 @@ public class InputController : MonoBehaviour
     private void MovePlayer()
     {
         if (!player.IsGameplayOn()) return;
-        if (!player.isAlive()) return;
-        if (Input.touchCount <= 0) return;
-        Touch touch = Input.GetTouch(0);
-        if (Input.GetTouch(0).phase != TouchPhase.Began) return;
-        if (touch.position.x < Screen.width / 2)
+        if (!player.isAlive())
         {
-            player.SetPosition(PlayerController.Position.Left);
-            generator.CyclePositions();
-            player.ClimbNextBranch();
+            lastMoveTime = 0.0f;
         }
         else
         {
-            player.SetPosition(PlayerController.Position.Right);
-            generator.CyclePositions();
-            player.ClimbNextBranch();
+            if (Input.touchCount <= 0) return;
+            Touch touch = Input.GetTouch(0);
+            if (Input.GetTouch(0).phase != TouchPhase.Began) return;
+            if (Time.time - lastMoveTime < tree.branchMoveDuration) return;
+            if (touch.position.x < Screen.width / 2)
+            {
+                player.SetPosition(PlayerController.Position.Left);
+                tree.CyclePositions();
+                player.ClimbNextBranch();
+                
+            }
+            else
+            {
+                player.SetPosition(PlayerController.Position.Right);
+                tree.CyclePositions();
+                player.ClimbNextBranch();
 
+            }
+            lastMoveTime = Time.time;
         }
 
 
