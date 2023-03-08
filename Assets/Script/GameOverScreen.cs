@@ -13,7 +13,7 @@ public class GameOverScreen : MonoBehaviour
 
     void Start()
     {
-
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
