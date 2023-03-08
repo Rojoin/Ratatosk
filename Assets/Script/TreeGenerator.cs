@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
 {
-    public Branch[] branch;
+    public Branch[] branches;
     public Transform[] branchPlaces;
+    [SerializeField] public float branchMoveDuration = 1.0f;
     void Start()
     {
         int x = 0;
-        foreach (var branches in branch)
+        foreach (var branches in branches)
         {
             branches.id = x;
-            branches.SetFreePosition(x != 0 ? Random.Range(0, 2) : 2);
+            branches.SetFreePosition((x > 1) ? Random.Range(0, 2) : 2);
             branches.gameObject.transform.position = branchPlaces[x].position;
             x++;
         }
@@ -26,22 +27,22 @@ public class TreeGenerator : MonoBehaviour
     public void Reset()
     {
         int x = 0;
-        foreach (var branches in branch)
+        foreach (var branch in branches)
         {
-            branches.id = x;
-            branches.SetFreePosition(x != 0 ? Random.Range(0, 2) : 2);
-            branches.gameObject.transform.position = branchPlaces[x].position;
-            branches.SetPlayerOnBranch(false);
+            branch.id = x;
+            branch.SetFreePosition((x >1) ? Random.Range(0, 2) : 2);
+            branch.gameObject.transform.position = branchPlaces[x].position;
+            branch.SetPlayerOnBranch(false);
             x++;
         }
     }
-    public  Branch GetCurrentBranch()
+    public Branch GetCurrentBranch()
     {
-       
 
-        foreach (var branch1 in branch)
+
+        foreach (var branch1 in branches)
         {
-            if (branch1.id == 0)
+            if (branch1.id == 1)
             {
                 return branch1;
             }
@@ -51,24 +52,56 @@ public class TreeGenerator : MonoBehaviour
     }
     public void CyclePositions()
     {
-     
-        foreach (var branch1 in branch)
+
+        foreach (var branch in branches)
         {
 
-            if (branch1.id == 0)
+            if (branch.id == 0)
             {
-                branch1.SetFreePosition(Random.Range(0, 2));
-                branch1.gameObject.transform.position = branchPlaces[branchPlaces.Length-1].position;
-                branch1.id = branch.Length-1;
-                branch1.SetPlayerOnBranch(false);
+                branch.SetFreePosition(Random.Range(0, 2));
+                branch.id = branches.Length - 1;
+                branch.SetPlayerOnBranch(false);
+                StartCoroutine(changePosBranch(branch, true));
+           
             }
             else
             {
-                branch1.gameObject.transform.position = branchPlaces[branch1.id - 1].position;
-                branch1.id--;
+                branch.id--;
+                StartCoroutine(changePosBranch(branch, false));
+
 
             }
         }
 
     }
+    IEnumerator changePosBranch(Branch branch, bool firstLine)
+    {
+        bool isMoving = true;
+        float timer = 0.0f;
+        Vector3 initalPos = branch.transform.position;
+        Vector3 finalPos = branchPlaces[branch.id].position;
+        while (isMoving)
+        {
+            if (firstLine)
+            {
+
+                branch.gameObject.transform.position = branchPlaces[branchPlaces.Length - 1].position;
+                finalPos = branchPlaces[branchPlaces.Length - 1].position;
+
+                timer = branchMoveDuration;
+            }
+            else
+            {
+                branch.gameObject.transform.position = Vector3.Lerp(initalPos, finalPos, timer / branchMoveDuration);
+
+            }
+            timer += Time.deltaTime;
+            isMoving = timer <= branchMoveDuration;
+          
+            yield return new WaitForEndOfFrame();
+        }
+        branch.transform.position = finalPos;
+    }
+
+
 }
