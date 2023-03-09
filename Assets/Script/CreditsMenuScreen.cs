@@ -8,7 +8,7 @@ public class CreditsMenuScreen : MonoBehaviour
    [SerializeField] GameObject MainMenuObject;
     void Start()
     {
-        
+        gameObject.SetActive(false);
     }
 
    

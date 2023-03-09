@@ -7,11 +7,16 @@ public class UiController : MonoBehaviour
     [SerializeField] GameObject screenGameOver;
     [SerializeField] GameObject screenMenu;
     [SerializeField] GameObject screenCredits;
+    [SerializeField] GameObject screenInGame;
+    [SerializeField] GameObject uiBlur;
     [SerializeField] PlayerController player;
     public bool creditsOn = false;
     void Start()
     {
-
+        ScreenVisibility(screenInGame,false);
+        ScreenVisibility(screenMenu,false);
+        ScreenVisibility(screenCredits,false);
+        ScreenVisibility(screenGameOver,false);
     }
 
     // Update is called once per frame
@@ -20,6 +25,8 @@ public class UiController : MonoBehaviour
         if (player.IsGameplayOn())
         {
             GameOverScreen();
+            InGameScreen();
+            uiBlur.SetActive(!player.isAlive());
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 player.SetGameState(false);
@@ -29,6 +36,7 @@ public class UiController : MonoBehaviour
         {
             MainMenuScreen();
             CreditsScreen();
+            uiBlur.SetActive(true);
         }
 
     }
@@ -36,18 +44,34 @@ public class UiController : MonoBehaviour
     {
         screen.SetActive(status);
     }
+    void InGameScreen()
+    {
+        ScreenVisibility(screenInGame, player.isAlive());
+        
+    }
     void GameOverScreen()
     {
         ScreenVisibility(screenGameOver, !player.isAlive());
+        if (!player.isAlive())
+        {
+            uiBlur.SetActive(true);
+        }
     }
     void MainMenuScreen()
     {
         ScreenVisibility(screenMenu, !player.IsGameplayOn() && !creditsOn);
+        if (!player.IsGameplayOn() && !creditsOn)
+        {
+            uiBlur.SetActive(true);
+        }
     }
     void CreditsScreen()
     {
         ScreenVisibility(screenCredits, creditsOn);
-
+        if (creditsOn)
+        {
+            uiBlur.SetActive(true);
+        }
     }
     public void SetCredits()
     {
