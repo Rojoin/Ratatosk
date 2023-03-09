@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] TreeGenerator tree;
-
     public enum Position
     {
         Left,
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour
     }
     [SerializeField] Position pos;
 
-    public Slider timerSlider;
     public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
@@ -52,7 +50,6 @@ public class PlayerController : MonoBehaviour
             ChangePosition();
             LoseTime();
             CheckTimePass();
-            timerSlider.value = timer;
         }
         else
         {
@@ -67,8 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpCount = 0;
         pos = Position.Right;
-        timerSlider.maxValue = maxTimer;
-        timerSlider.value = timer;
+
         timer = maxTimer;
         uiScore.SetScore(0);
         aliveState = true;
@@ -76,7 +72,7 @@ public class PlayerController : MonoBehaviour
         totalTime = 0.0f;
         normalizeTime = 1.0f;
         sliderImage.fillAmount = 1.0f;
-        
+
 
     }
     public bool isAlive() => aliveState;
@@ -119,15 +115,15 @@ public class PlayerController : MonoBehaviour
     }
     void ChangePosition()
     {
-            switch (pos)
-            {
-                case Position.Left:
-                    transform.position = tree.GetCurrentBranch().GetLeftPosition().position;
-                    break;
-                case Position.Right:
-                    transform.position = tree.GetCurrentBranch().GetRightPosition().position;
-                    break;
-            }
+        switch (pos)
+        {
+            case Position.Left:
+                transform.position = tree.GetCurrentBranch().GetLeftPosition().position;
+                break;
+            case Position.Right:
+                transform.position = tree.GetCurrentBranch().GetRightPosition().position;
+                break;
+        }
 
     }
     uint GetScore() => jumpCount;
@@ -140,7 +136,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        timerSlider.value = timer;
+
     }
 
     public bool IsGameplayOn() => gameplayState;
@@ -160,7 +156,7 @@ public class PlayerController : MonoBehaviour
         if (jumpsBeforeSpeedUp == jumpMax)
         {
             jumpsBeforeSpeedUp = 0;
-            gameSpeed += speedValue/2;
+            gameSpeed += speedValue / 2;
         }
     }
 }
