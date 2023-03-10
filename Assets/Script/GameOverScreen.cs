@@ -28,12 +28,14 @@ public class GameOverScreen : MonoBehaviour
     }
     public void Retry()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         tree.Reset();
         player.Reset();
         this.gameObject.SetActive(false);
     }
     public void ReturnToMenu()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         player.SetGameState(false);
         this.gameObject.SetActive(false);
     }

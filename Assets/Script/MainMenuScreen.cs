@@ -23,6 +23,7 @@ public class MainMenuScreen : MonoBehaviour
 
     public void Play()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         tree.Reset();
         player.Reset();
         player.SetFirstTimeState(true);
@@ -33,11 +34,13 @@ public class MainMenuScreen : MonoBehaviour
 
     public void ShowCredits()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         CreditsMenu.SetActive(true);
         gameObject.SetActive(false);
     }
     public void Exit()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         Application.Quit();
     }
 }

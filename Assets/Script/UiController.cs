@@ -83,5 +83,7 @@ public class UiController : MonoBehaviour
         {
             creditsOn = true;
         }
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
+
     }
 }
