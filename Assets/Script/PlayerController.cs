@@ -117,11 +117,11 @@ public class PlayerController : MonoBehaviour
         {
 
             timer += Time.deltaTime;
-            if (timer >= 0.30f)
+            if (timer >= 0.15f)
             {
                 squirrel.SetActive(false);
             }
-            isMoving = timer <= 1.0f;
+            isMoving = timer <= 0.50f;
             yield return new WaitForEndOfFrame();
         }
         aliveState = false;
