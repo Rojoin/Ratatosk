@@ -30,6 +30,7 @@ public class InputController : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (Input.GetTouch(0).phase != TouchPhase.Began) return;
             if (Time.time - lastMoveTime < tree.branchMoveDuration) return;
+            if (player.isHawkActive) return;
             if (touch.position.x < Screen.width / 2)
             {
                 player.SetPosition(PlayerController.Position.Left);

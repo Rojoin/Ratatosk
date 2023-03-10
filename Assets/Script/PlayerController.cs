@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] TreeGenerator tree;
     [SerializeField] GameObject squirrel;
+    [SerializeField] Animator hawk;
     public enum Position
     {
         Left,
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
         Any
     }
     [SerializeField] Position pos;
-    [SerializeField] AudioClip  acornSound, bushSound;
+    [SerializeField] AudioClip acornSound, bushSound;
     public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool aliveState = true;
     private bool gameplayState = false;
     private bool firstTimeState = false;
+    public bool isHawkActive = false;
     private int jumpsBeforeSpeedUp = 0;
     [SerializeField] int jumpMax = 100;
 
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
-            ChangePosition();
+        ChangePosition();
 
     }
 
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
         sliderImage.fillAmount = 1.0f;
         gameSpeed = defaultGameSpeed;
         jumpCount = 0;
+        isHawkActive = false;
 
     }
     public bool isAlive() => aliveState;
@@ -90,7 +93,8 @@ public class PlayerController : MonoBehaviour
         if (timer <= 0.0f)
         {
             timer = 0.0f;
-            aliveState = false;
+            StartCoroutine(hawkAppears());
+            
         }
     }
 
@@ -102,6 +106,28 @@ public class PlayerController : MonoBehaviour
             timer = maxTimer;
         }
     }
+    public IEnumerator hawkAppears()
+    {
+        bool isMoving = true;
+        isHawkActive = true;
+        float timer = 0.0f;
+        hawk.SetTrigger("GameOver");
+        while (isMoving)
+        {
+
+            timer += Time.deltaTime;
+            if (timer >= 0.30f)
+            {
+                squirrel.SetActive(false);
+            }
+            isMoving = timer <= 1.0f;
+            yield return new WaitForEndOfFrame();
+        }
+        aliveState = false;
+        hawk.SetTrigger("Base");
+    }
+
+
 
     private void CheckBranchPosition()
     {
@@ -166,3 +192,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
