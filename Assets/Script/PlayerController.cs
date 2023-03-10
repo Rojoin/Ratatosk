@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         Any
     }
     [SerializeField] Position pos;
-
+    [SerializeField] AudioClip  acornSound, bushSound;
     public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
@@ -105,10 +105,12 @@ public class PlayerController : MonoBehaviour
         if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
         {
             aliveState = false;
+            SoundManager.Instance.PlaySound(bushSound);
         }
         else
         {
             tree.GetCurrentBranch().SetPlayerOnBranch(true);
+            SoundManager.Instance.PlaySound(acornSound);
             jumpCount++;
             jumpsBeforeSpeedUp++;
         }
