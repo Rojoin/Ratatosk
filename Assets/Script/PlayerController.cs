@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         Any
     }
     [SerializeField] Position pos;
-    [SerializeField] AudioClip acornSound, bushSound;
+    [SerializeField] AudioClip acornSound, bushSound, hawkSound;
     public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
         bool isMoving = true;
         isHawkActive = true;
         float timer = 0.0f;
+        SoundManager.Instance.PlaySound(hawkSound);
         hawk.SetTrigger("GameOver");
         while (isMoving)
         {
