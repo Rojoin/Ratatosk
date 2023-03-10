@@ -37,4 +37,12 @@ public class MainMenuScreen : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         Application.Quit();
     }
+    public void ToggleSFX()
+    {
+        SoundManager.Instance.ToggleEffects();
+    }
+    public void ToggleMusic()
+    {
+        SoundManager.Instance.ToggleMusic();
+    }
 }
