@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: f3396dfbffd13a941a2060d730a5cd19
+guid: e9c9165d9ba57c048a1904ab0e359cd9
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Default_Material
-    second: {fileID: 2100000, guid: 6dc40e7d356149f4d805b4b64949c112, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -29,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -60,7 +55,7 @@ ModelImporter:
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
-    minBoneWeight: 0.392
+    minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
@@ -94,16 +89,15 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Rig_Ardilla:Joints
+    rootMotionBoneName: Joints
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b33b205e65fada24e852d8254cac4195,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

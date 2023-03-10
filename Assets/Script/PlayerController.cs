@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] TreeGenerator tree;
+    [SerializeField] GameObject squirrel;
     public enum Position
     {
         Left,
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        squirrel = GetComponentInChildren<GameObject>();
     }
 
 
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpCount = 0;
         pos = Position.Right;
-
+        squirrel.SetActive(true);
         timer = maxTimer;
         uiScore.SetScore(0);
         aliveState = true;
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
         if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
         {
             aliveState = false;
+            squirrel.SetActive(false);
             SoundManager.Instance.PlaySound(bushSound);
         }
         else

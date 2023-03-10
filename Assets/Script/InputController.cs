@@ -9,6 +9,7 @@ public class InputController : MonoBehaviour
     [SerializeField] AudioClip jumpSound;
     public TreeGenerator tree;
     private float lastMoveTime = 0.0f;
+    [SerializeField] Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -44,6 +45,7 @@ public class InputController : MonoBehaviour
 
             }
             lastMoveTime = Time.time;
+            animator.SetTrigger("Jump");
             SoundManager.Instance.PlaySound(jumpSound);
         }
 
