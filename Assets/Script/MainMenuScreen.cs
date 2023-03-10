@@ -32,12 +32,6 @@ public class MainMenuScreen : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void ShowCredits()
-    {
-        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-        CreditsMenu.SetActive(true);
-        gameObject.SetActive(false);
-    }
     public void Exit()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
