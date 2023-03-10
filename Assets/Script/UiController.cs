@@ -13,10 +13,10 @@ public class UiController : MonoBehaviour
     [SerializeField] AudioClip menuMusic, gameplayMusic, gameOverMusic, previousClip;
     [SerializeField] AudioSource music;
     public bool creditsOn = false;
-    void Start()
+    void Awake()
     {
         ScreenVisibility(screenInGame, false);
-        ScreenVisibility(screenMenu, false);
+        ScreenVisibility(screenMenu, true);
         ScreenVisibility(screenCredits, false);
         ScreenVisibility(screenGameOver, false);
     }

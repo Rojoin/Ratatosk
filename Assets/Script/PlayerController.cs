@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        squirrel = GetComponentInChildren<GameObject>();
+        
     }
 
 
