@@ -15,6 +15,8 @@ public class ImageChanger : MonoBehaviour
     {
         if (currentImage.sprite == image) currentImage.sprite = image2;
         else currentImage.sprite = image;
+
+        SoundManager.Instance.PlaySound(SoundManager.Instance.button);
     }
 
 }
