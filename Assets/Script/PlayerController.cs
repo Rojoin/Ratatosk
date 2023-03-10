@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         if (aliveState)
         {
 
-            ChangePosition();
             LoseTime();
             CheckTimePass();
         }
@@ -55,6 +54,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
+            ChangePosition();
 
     }
 
