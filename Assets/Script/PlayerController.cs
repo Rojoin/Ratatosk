@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public UIScore uiScore;
     uint jumpCount;
     public float gameSpeed;
+    private float defaultGameSpeed = 0;
     private float totalTime = 0.0f;
     public float timeToSpeedUp = 10.0f;
     public float gameSpeedModifier = 1.0f;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        defaultGameSpeed = gameSpeed;
     }
 
 
@@ -73,7 +74,8 @@ public class PlayerController : MonoBehaviour
         totalTime = 0.0f;
         normalizeTime = 1.0f;
         sliderImage.fillAmount = 1.0f;
-
+        gameSpeed = defaultGameSpeed;
+        jumpCount = 0;
 
     }
     public bool isAlive() => aliveState;
