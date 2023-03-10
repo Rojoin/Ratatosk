@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
 {
 
     [SerializeField] PlayerController player;
+    [SerializeField] AudioClip jumpSound;
     public TreeGenerator tree;
     private float lastMoveTime = 0.0f;
 
@@ -43,6 +44,7 @@ public class InputController : MonoBehaviour
 
             }
             lastMoveTime = Time.time;
+            SoundManager.Instance.PlaySound(jumpSound);
         }
 
 
