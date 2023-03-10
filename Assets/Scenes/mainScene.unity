@@ -597,6 +597,11 @@ MonoBehaviour:
   screenInGame: {fileID: 1972748366}
   uiBlur: {fileID: 1014441608}
   player: {fileID: 1005882520}
+  menuMusic: {fileID: 8300000, guid: 4a21856bc23b07f42bd1f381e6de55d2, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: fb3478b687d4a724195611d39fc30931, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 003d2dcc0ece53247a39a733b3dc80e2, type: 3}
+  previousClip: {fileID: 0}
+  music: {fileID: 1839881051}
   creditsOn: 0
 --- !u!1 &963194225
 GameObject:
@@ -1575,7 +1580,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -10,13 +10,15 @@ public class UiController : MonoBehaviour
     [SerializeField] GameObject screenInGame;
     [SerializeField] GameObject uiBlur;
     [SerializeField] PlayerController player;
+    [SerializeField] AudioClip menuMusic, gameplayMusic, gameOverMusic, previousClip;
+    [SerializeField] AudioSource music;
     public bool creditsOn = false;
     void Start()
     {
-        ScreenVisibility(screenInGame,false);
-        ScreenVisibility(screenMenu,false);
-        ScreenVisibility(screenCredits,false);
-        ScreenVisibility(screenGameOver,false);
+        ScreenVisibility(screenInGame, false);
+        ScreenVisibility(screenMenu, false);
+        ScreenVisibility(screenCredits, false);
+        ScreenVisibility(screenGameOver, false);
     }
 
     // Update is called once per frame
@@ -27,17 +29,26 @@ public class UiController : MonoBehaviour
             GameOverScreen();
             InGameScreen();
             uiBlur.SetActive(!player.isAlive());
+            music.clip = player.isAlive() ? gameplayMusic : gameOverMusic;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 player.SetGameState(false);
             }
+
         }
         else
         {
             MainMenuScreen();
             CreditsScreen();
             uiBlur.SetActive(true);
+            music.clip = menuMusic;
         }
+        if (previousClip != music.clip)
+        {
+            music.Play();
+
+        }
+        previousClip = music.clip;
 
     }
     void ScreenVisibility(GameObject screen, bool status)
@@ -47,7 +58,7 @@ public class UiController : MonoBehaviour
     void InGameScreen()
     {
         ScreenVisibility(screenInGame, player.isAlive());
-        
+
     }
     void GameOverScreen()
     {
