@@ -93,8 +93,10 @@ public class PlayerController : MonoBehaviour
         if (timer <= 0.0f)
         {
             timer = 0.0f;
-            StartCoroutine(hawkAppears());
-            
+            if (!isHawkActive)
+            {
+                StartCoroutine(hawkAppears());
+            }
         }
     }
 
@@ -108,12 +110,12 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator hawkAppears()
     {
-        bool isMoving = true;
+        bool isHawkMoving = true;
         isHawkActive = true;
         float timer = 0.0f;
         SoundManager.Instance.PlaySound(hawkSound);
         hawk.SetTrigger("GameOver");
-        while (isMoving)
+        while (isHawkMoving)
         {
 
             timer += Time.deltaTime;
@@ -121,7 +123,7 @@ public class PlayerController : MonoBehaviour
             {
                 squirrel.SetActive(false);
             }
-            isMoving = timer <= 0.50f;
+            isHawkMoving = timer <= 0.50f;
             yield return new WaitForEndOfFrame();
         }
         aliveState = false;
