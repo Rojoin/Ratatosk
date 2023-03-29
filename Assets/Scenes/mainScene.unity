@@ -2130,6 +2130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8321179895117500467, guid: 351883cd186ea1748b42de2ba2b94b4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8321179895117500477, guid: 351883cd186ea1748b42de2ba2b94b4d,
         type: 3}
       propertyPath: hawk
