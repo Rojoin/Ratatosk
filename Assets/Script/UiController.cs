@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class UiController : MonoBehaviour
 {
-    [SerializeField] GameObject screenGameOver;
     [SerializeField] GameObject screenMenu;
     [SerializeField] GameObject screenCredits;
     [SerializeField] GameObject screenInGame;
+    [SerializeField] GameObject screenGameOver;
     [SerializeField] GameObject uiBlur;
     [SerializeField] PlayerController player;
     [SerializeField] AudioClip menuMusic;
@@ -17,9 +17,9 @@ public class UiController : MonoBehaviour
 
     void Awake()
     {
-        ScreenVisibility(screenInGame, false);
         ScreenVisibility(screenMenu, true);
         ScreenVisibility(screenCredits, false);
+        ScreenVisibility(screenInGame, false);
         ScreenVisibility(screenGameOver, false);
     }
 
@@ -43,6 +43,7 @@ public class UiController : MonoBehaviour
             uiBlur.SetActive(true);
             music.clip = menuMusic;
         }
+
         if (previousClip != music.clip)
         {
             music.Play();
