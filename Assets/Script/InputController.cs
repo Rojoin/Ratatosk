@@ -34,7 +34,7 @@ public class InputController : MonoBehaviour
                 player.SetPosition(PlayerController.Position.Left);
                 tree.CyclePositions();
                 player.ClimbNextBranch();
-                
+
             }
             else
             {

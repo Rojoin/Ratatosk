@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
         }
     }
     // Update is called once per frame
-   
+
     public void PlaySound(AudioClip clip)
     {
         effectSource.PlayOneShot(clip);

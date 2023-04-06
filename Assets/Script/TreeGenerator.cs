@@ -24,7 +24,7 @@ public class TreeGenerator : MonoBehaviour
         foreach (var branch in branches)
         {
             branch.id = x;
-            branch.SetFreePosition((x >1) ? Random.Range(0, 2) : 2);
+            branch.SetFreePosition((x > 1) ? Random.Range(0, 2) : 2);
             branch.gameObject.transform.position = branchPlaces[x].position;
             branch.SetPlayerOnBranch(false);
             x++;
@@ -56,7 +56,7 @@ public class TreeGenerator : MonoBehaviour
                 branch.id = branches.Length - 1;
                 branch.SetPlayerOnBranch(false);
                 StartCoroutine(changePosBranch(branch, true));
-           
+
             }
             else
             {
@@ -91,7 +91,7 @@ public class TreeGenerator : MonoBehaviour
             }
             timer += Time.deltaTime;
             isMoving = timer <= branchMoveDuration;
-          
+
             yield return new WaitForEndOfFrame();
         }
         branch.transform.position = finalPos;

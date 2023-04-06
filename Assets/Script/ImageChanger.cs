@@ -7,7 +7,7 @@ public class ImageChanger : MonoBehaviour
     [SerializeField] private Image currentImage;
     private void Start()
     {
-            currentImage.sprite = image;
+        currentImage.sprite = image;
     }
     public void ChangeImage()
     {

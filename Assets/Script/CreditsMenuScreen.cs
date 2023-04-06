@@ -3,7 +3,7 @@ using UnityEngine;
 public class CreditsMenuScreen : MonoBehaviour
 {
 
-   [SerializeField] GameObject MainMenuObject;
+    [SerializeField] GameObject MainMenuObject;
     void Start()
     {
         gameObject.SetActive(false);
