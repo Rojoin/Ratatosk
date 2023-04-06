@@ -31,6 +31,11 @@ public class MainMenuScreen : MonoBehaviour
    	    Application.Quit();
 #endif
     }
+    
+    public void OpenMoreGamesUrl()
+    {
+        Application.OpenURL("https://imagecampus.itch.io/");
+    }
 
     public void ToggleSFX()
     {
