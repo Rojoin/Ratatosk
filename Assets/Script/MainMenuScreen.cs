@@ -11,6 +11,16 @@ public class MainMenuScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+#if UNITY_ANDROID
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Exit();
+        }
+    }
+#endif
+
     public void Play()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
