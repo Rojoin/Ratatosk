@@ -1,11 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     [SerializeField] TreeGenerator tree;
-    [SerializeField] TMPro.TextMeshProUGUI score;
-    [SerializeField] TMPro.TextMeshProUGUI highScore;
+    [SerializeField] TextMeshProUGUI score;
+    [SerializeField] TextMeshProUGUI highScore;
     [SerializeField] UIScore scoreValue;
     private float highiestScore = 0;
 

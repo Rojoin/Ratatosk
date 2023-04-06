@@ -3,8 +3,8 @@ using TMPro;
 
 public class CreditsList : MonoBehaviour
 {
-    [SerializeField] TMPro.TMP_Text[] title;
-    [SerializeField] TMPro.TMP_Text[] names;
+    [SerializeField] TMP_Text[] title;
+    [SerializeField] TMP_Text[] names;
     private RectTransform rectTransform;
     public float minTitle;
     public float minNames;
