@@ -47,10 +47,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!gameplayState) return;
+        if (!gameplayState)
+            return;
+
         if (aliveState)
         {
-
             LoseTime();
             CheckTimePass();
         }
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
+
         ChangePosition();
     }
 
