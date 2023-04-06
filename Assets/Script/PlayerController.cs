@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
             timer = 0.0f;
             if (!isHawkActive)
             {
-                StartCoroutine(hawkAppears());
+                StartCoroutine(HawkAppears());
             }
         }
     }
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public IEnumerator hawkAppears()
+    public IEnumerator HawkAppears()
     {
         bool isHawkMoving = true;
         isHawkActive = true;
