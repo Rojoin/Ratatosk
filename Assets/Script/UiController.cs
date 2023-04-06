@@ -35,7 +35,6 @@ public class UiController : MonoBehaviour
             {
                 player.SetGameState(false);
             }
-
         }
         else
         {
@@ -47,23 +46,21 @@ public class UiController : MonoBehaviour
         if (previousClip != music.clip)
         {
             music.Play();
-
         }
         previousClip = music.clip;
-
     }
 
-    void ScreenVisibility(GameObject screen, bool status)
+    private void ScreenVisibility(GameObject screen, bool status)
     {
         screen.SetActive(status);
     }
 
-    void InGameScreen()
+    private void InGameScreen()
     {
         ScreenVisibility(screenInGame, player.isAlive());
     }
 
-    void GameOverScreen()
+    private void GameOverScreen()
     {
         ScreenVisibility(screenGameOver, !player.isAlive());
         if (!player.isAlive())
@@ -72,7 +69,7 @@ public class UiController : MonoBehaviour
         }
     }
 
-    void MainMenuScreen()
+    private void MainMenuScreen()
     {
         ScreenVisibility(screenMenu, !player.IsGameplayOn() && !creditsOn);
         if (!player.IsGameplayOn() && !creditsOn)
@@ -81,7 +78,7 @@ public class UiController : MonoBehaviour
         }
     }
 
-    void CreditsScreen()
+    private void CreditsScreen()
     {
         ScreenVisibility(screenCredits, creditsOn);
         if (creditsOn)

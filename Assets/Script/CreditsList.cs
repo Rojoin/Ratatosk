@@ -8,6 +8,7 @@ public class CreditsList : MonoBehaviour
     private RectTransform rectTransform;
     public float minTitle;
     public float minNames;
+
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -22,7 +23,7 @@ public class CreditsList : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         foreach (TMP_Text item in title)
         {

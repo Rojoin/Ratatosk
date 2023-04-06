@@ -9,7 +9,6 @@ public class MainMenuScreen : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(false);
-
     }
 
     public void Play()

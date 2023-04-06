@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource effectSource;
     [SerializeField] public AudioClip button;
 
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
         {

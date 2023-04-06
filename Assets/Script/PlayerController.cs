@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         ChangePosition();
     }
 
-    Position GetPosition() => pos;
+    private Position GetPosition() => pos;
 
     public void Reset()
     {
@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
         gameSpeed = defaultGameSpeed;
         jumpCount = 0;
         isHawkActive = false;
-
     }
 
     public bool isAlive() => aliveState;
@@ -119,7 +118,6 @@ public class PlayerController : MonoBehaviour
         hawk.SetTrigger("GameOver");
         while (isHawkMoving)
         {
-
             timer += Time.deltaTime;
             if (timer >= 0.15f)
             {
@@ -149,7 +147,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ChangePosition()
+    private void ChangePosition()
     {
         switch (pos)
         {
@@ -160,7 +158,6 @@ public class PlayerController : MonoBehaviour
                 transform.position = tree.GetCurrentBranch().GetRightPosition().position;
                 break;
         }
-
     }
 
     uint GetScore() => jumpCount;

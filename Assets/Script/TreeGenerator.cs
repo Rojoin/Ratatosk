@@ -49,27 +49,22 @@ public class TreeGenerator : MonoBehaviour
     {
         foreach (var branch in branches)
         {
-
             if (branch.id == 0)
             {
                 branch.SetFreePosition(Random.Range(0, 2));
                 branch.id = branches.Length - 1;
                 branch.SetPlayerOnBranch(false);
                 StartCoroutine(changePosBranch(branch, true));
-
             }
             else
             {
                 branch.id--;
                 StartCoroutine(changePosBranch(branch, false));
-
-
             }
         }
-
     }
 
-    IEnumerator changePosBranch(Branch branch, bool firstLine)
+    private IEnumerator changePosBranch(Branch branch, bool firstLine)
     {
         bool isMoving = true;
         float timer = 0.0f;
@@ -79,7 +74,6 @@ public class TreeGenerator : MonoBehaviour
         {
             if (firstLine)
             {
-
                 branch.gameObject.transform.position = branchPlaces[branchPlaces.Length - 1].position;
                 finalPos = branchPlaces[branchPlaces.Length - 1].position;
 
@@ -88,7 +82,6 @@ public class TreeGenerator : MonoBehaviour
             else
             {
                 branch.gameObject.transform.position = Vector3.Lerp(initalPos, finalPos, timer / branchMoveDuration);
-
             }
             timer += Time.deltaTime;
             isMoving = timer <= branchMoveDuration;
