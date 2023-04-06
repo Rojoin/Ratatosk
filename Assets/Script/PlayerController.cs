@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
         ChangePosition();
     }
 
-    private Position GetPosition() => pos;
-
     public void Reset()
     {
         jumpCount = 0;
@@ -159,8 +157,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-    uint GetScore() => jumpCount;
 
     public void ClimbNextBranch()
     {
