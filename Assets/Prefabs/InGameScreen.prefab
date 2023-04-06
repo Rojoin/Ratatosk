@@ -31,12 +31,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5124024540270854389}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48.096, y: -144}
-  m_SizeDelta: {x: 674.2219, y: 68.8226}
+  m_AnchoredPosition: {x: 48.096, y: -168.49}
+  m_SizeDelta: {x: 674.2219, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5124024539206404892
 CanvasRenderer:
@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 01240a13eb39fef41b583e6172d7df97, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
   m_FillAmount: 1
@@ -108,7 +108,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5124024540270854389}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -253,9 +253,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5124024539795391835}
   - {fileID: 5124024540815713097}
   - {fileID: 5124024539206404893}
-  - {fileID: 5124024539795391835}
   - {fileID: 3121191071162463946}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -296,12 +296,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5124024540270854389}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -133.39975}
-  m_SizeDelta: {x: 782.3406, y: 106.3358}
+  m_AnchoredPosition: {x: 0, y: -154}
+  m_SizeDelta: {x: 782.341, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5124024540815713103
 CanvasRenderer:
@@ -333,7 +333,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 6e5679675ac9c4e41bae6648cc95d792, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -350,38 +350,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
         type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
         type: 3}
@@ -421,26 +391,6 @@ PrefabInstance:
     - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
-        type: 3}
-      propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 901494131006112288, guid: 1f1c60f04fa90704581925aa4334cd15,
