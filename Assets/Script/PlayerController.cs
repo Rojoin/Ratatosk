@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     public float normalizeTime = 1.0f;
     private bool aliveState = true;
     private bool gameplayState = false;
-    private bool firstTimeState = false;
     public bool isHawkActive = false;
     private int jumpsBeforeSpeedUp = 0;
     [SerializeField] int jumpMax = 100;
@@ -166,8 +165,6 @@ public class PlayerController : MonoBehaviour
     public bool IsGameplayOn() => gameplayState;
 
     public void SetGameState(bool status) => gameplayState = status;
-
-    public void SetFirstTimeState(bool status) => firstTimeState = status;
 
     private void CheckTimePass()
     {

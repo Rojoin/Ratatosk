@@ -26,7 +26,6 @@ public class MainMenuScreen : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         tree.Reset();
         player.Reset();
-        player.SetFirstTimeState(true);
         player.SetGameState(true);
         CreditsMenu.SetActive(false);
         this.gameObject.SetActive(false);
