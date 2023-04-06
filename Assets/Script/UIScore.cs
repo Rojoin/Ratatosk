@@ -3,7 +3,7 @@ using TMPro;
 
 public class UIScore : MonoBehaviour
 {
-    private float score;
+    private uint score;
     private TextMeshProUGUI textMesh;
 
     void Awake()
@@ -19,5 +19,5 @@ public class UIScore : MonoBehaviour
             textMesh.text = score.ToString("0");
     }
 
-    public float GetScore() => score;
+    public uint GetScore() => score;
 }

@@ -14,14 +14,19 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void Update()
+    void OnEnable()
     {
-        score.text = "Score: " + scoreValue.GetScore();
-        if (scoreValue.GetScore() > PlayerPrefs.GetFloat("HighScore"))
+        uint finalScore = scoreValue.GetScore();
+        uint highestScore = (uint)PlayerPrefs.GetFloat("HighScore");
+
+        if (finalScore > highestScore)
         {
-            PlayerPrefs.SetFloat("HighScore", scoreValue.GetScore());
+            highestScore = finalScore;
+            PlayerPrefs.SetFloat("HighScore", (float)finalScore);
         }
-        highScore.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
+
+        score.text = "Score: " + finalScore;
+        highScore.text = "HighScore: " + highestScore;
     }
 
     public void Retry()
