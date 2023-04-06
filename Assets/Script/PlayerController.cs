@@ -55,10 +55,6 @@ public class PlayerController : MonoBehaviour
             LoseTime();
             CheckTimePass();
         }
-        else
-        {
-            Debug.Log("GameOver");
-        }
 
         ChangePosition();
     }
