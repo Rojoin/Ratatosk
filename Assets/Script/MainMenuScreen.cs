@@ -5,7 +5,7 @@ public class MainMenuScreen : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] TreeGenerator tree;
     [SerializeField] GameObject CreditsMenu;
-    // Start is called before the first frame update
+
     void Start()
     {
         gameObject.SetActive(false);
@@ -28,10 +28,12 @@ public class MainMenuScreen : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         Application.Quit();
     }
+
     public void ToggleSFX()
     {
         SoundManager.Instance.ToggleEffects();
     }
+
     public void ToggleMusic()
     {
         SoundManager.Instance.ToggleMusic();

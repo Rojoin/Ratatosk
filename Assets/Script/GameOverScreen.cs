@@ -14,7 +14,6 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         score.text = "Score: " + scoreValue.GetScore();
@@ -24,6 +23,7 @@ public class GameOverScreen : MonoBehaviour
         }
         highScore.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
     }
+
     public void Retry()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
@@ -31,11 +31,11 @@ public class GameOverScreen : MonoBehaviour
         player.Reset();
         this.gameObject.SetActive(false);
     }
+
     public void ReturnToMenu()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
         player.SetGameState(false);
         this.gameObject.SetActive(false);
     }
-
 }

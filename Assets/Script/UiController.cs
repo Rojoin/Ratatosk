@@ -11,6 +11,7 @@ public class UiController : MonoBehaviour
     [SerializeField] AudioClip menuMusic, gameplayMusic, gameOverMusic, previousClip;
     [SerializeField] AudioSource music;
     public bool creditsOn = false;
+
     void Awake()
     {
         ScreenVisibility(screenInGame, false);
@@ -19,7 +20,6 @@ public class UiController : MonoBehaviour
         ScreenVisibility(screenGameOver, false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player.IsGameplayOn())
@@ -49,15 +49,17 @@ public class UiController : MonoBehaviour
         previousClip = music.clip;
 
     }
+
     void ScreenVisibility(GameObject screen, bool status)
     {
         screen.SetActive(status);
     }
+
     void InGameScreen()
     {
         ScreenVisibility(screenInGame, player.isAlive());
-
     }
+
     void GameOverScreen()
     {
         ScreenVisibility(screenGameOver, !player.isAlive());
@@ -66,6 +68,7 @@ public class UiController : MonoBehaviour
             uiBlur.SetActive(true);
         }
     }
+
     void MainMenuScreen()
     {
         ScreenVisibility(screenMenu, !player.IsGameplayOn() && !creditsOn);
@@ -74,6 +77,7 @@ public class UiController : MonoBehaviour
             uiBlur.SetActive(true);
         }
     }
+
     void CreditsScreen()
     {
         ScreenVisibility(screenCredits, creditsOn);
@@ -82,6 +86,7 @@ public class UiController : MonoBehaviour
             uiBlur.SetActive(true);
         }
     }
+
     public void SetCredits()
     {
         if (creditsOn)
@@ -93,6 +98,5 @@ public class UiController : MonoBehaviour
             creditsOn = true;
         }
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-
     }
 }

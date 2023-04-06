@@ -5,10 +5,12 @@ public class ImageChanger : MonoBehaviour
 {
     [SerializeField] private Sprite image, image2;
     [SerializeField] private Image currentImage;
+
     private void Start()
     {
         currentImage.sprite = image;
     }
+
     public void ChangeImage()
     {
         if (currentImage.sprite == image) currentImage.sprite = image2;
@@ -16,5 +18,4 @@ public class ImageChanger : MonoBehaviour
 
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
     }
-
 }

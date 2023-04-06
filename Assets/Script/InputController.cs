@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-
     [SerializeField] PlayerController player;
     [SerializeField] AudioClip jumpSound;
     public TreeGenerator tree;
     private float lastMoveTime = 0.0f;
     [SerializeField] Animator animator;
 
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
@@ -47,10 +45,5 @@ public class InputController : MonoBehaviour
             animator.SetTrigger("Jump");
             SoundManager.Instance.PlaySound(jumpSound);
         }
-
-
     }
-
-
-
 }

@@ -7,14 +7,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TreeGenerator tree;
     [SerializeField] GameObject squirrel;
     [SerializeField] Animator hawk;
+
     public enum Position
     {
         Left,
         Right,
         Any
     }
+
     [SerializeField] Position pos;
     [SerializeField] AudioClip acornSound, bushSound, hawkSound;
+
     public Image sliderImage;
     public UIScore uiScore;
     uint jumpCount;
@@ -35,12 +38,10 @@ public class PlayerController : MonoBehaviour
     private int jumpsBeforeSpeedUp = 0;
     [SerializeField] int jumpMax = 100;
 
-
     void Start()
     {
         defaultGameSpeed = gameSpeed;
     }
-
 
     void Update()
     {
@@ -56,7 +57,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("GameOver");
         }
         ChangePosition();
-
     }
 
     Position GetPosition() => pos;
@@ -78,7 +78,9 @@ public class PlayerController : MonoBehaviour
         isHawkActive = false;
 
     }
+
     public bool isAlive() => aliveState;
+
     public void SetPosition(Position side)
     {
         pos = side;
@@ -105,6 +107,7 @@ public class PlayerController : MonoBehaviour
             timer = maxTimer;
         }
     }
+
     public IEnumerator hawkAppears()
     {
         bool isHawkMoving = true;
@@ -127,8 +130,6 @@ public class PlayerController : MonoBehaviour
         hawk.SetTrigger("Base");
     }
 
-
-
     private void CheckBranchPosition()
     {
         if (tree.GetCurrentBranch().GetFreePosition() != pos && tree.GetCurrentBranch().GetFreePosition() != Position.Any)
@@ -145,6 +146,7 @@ public class PlayerController : MonoBehaviour
             jumpsBeforeSpeedUp++;
         }
     }
+
     void ChangePosition()
     {
         switch (pos)
@@ -158,6 +160,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
     uint GetScore() => jumpCount;
 
     public void ClimbNextBranch()
@@ -168,9 +171,13 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool IsGameplayOn() => gameplayState;
+
     public bool IsFirstTime() => firstTimeState;
+
     public void SetGameState(bool status) => gameplayState = status;
+
     public void SetFirstTimeState(bool status) => firstTimeState = status;
+
     private void CheckTimePass()
     {
         totalTime += Time.deltaTime;
@@ -188,4 +195,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-

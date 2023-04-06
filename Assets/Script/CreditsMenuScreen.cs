@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CreditsMenuScreen : MonoBehaviour
 {
-
     [SerializeField] GameObject MainMenuObject;
+
     void Start()
     {
         gameObject.SetActive(false);
@@ -15,5 +15,4 @@ public class CreditsMenuScreen : MonoBehaviour
         MainMenuObject.SetActive(true);
         this.gameObject.SetActive(false);
     }
-
 }

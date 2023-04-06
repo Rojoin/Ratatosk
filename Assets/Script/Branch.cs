@@ -37,7 +37,6 @@ public class Branch : MonoBehaviour
                 BushMeshController(false);
 
                 break;
-
         }
     }
 
@@ -62,11 +61,15 @@ public class Branch : MonoBehaviour
     }
 
     public Transform GetLeftPosition() => Left;
+
     public Transform GetRightPosition() => Right;
+
     public void SetFreePosition(int x)
     {
         freePosition = (PlayerController.Position)x;
     }
+
     public PlayerController.Position GetFreePosition() => freePosition;
+
     public void SetPlayerOnBranch(bool status) => isPlayerOn = status;
 }

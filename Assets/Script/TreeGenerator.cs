@@ -6,6 +6,7 @@ public class TreeGenerator : MonoBehaviour
     public Branch[] branches;
     public Transform[] branchPlaces;
     [SerializeField] public float branchMoveDuration = 1.0f;
+
     void Start()
     {
         int x = 0;
@@ -30,10 +31,9 @@ public class TreeGenerator : MonoBehaviour
             x++;
         }
     }
+
     public Branch GetCurrentBranch()
     {
-
-
         foreach (var branch1 in branches)
         {
             if (branch1.id == 1)
@@ -44,9 +44,9 @@ public class TreeGenerator : MonoBehaviour
 
         return null;
     }
+
     public void CyclePositions()
     {
-
         foreach (var branch in branches)
         {
 
@@ -68,6 +68,7 @@ public class TreeGenerator : MonoBehaviour
         }
 
     }
+
     IEnumerator changePosBranch(Branch branch, bool firstLine)
     {
         bool isMoving = true;
@@ -96,6 +97,4 @@ public class TreeGenerator : MonoBehaviour
         }
         branch.transform.position = finalPos;
     }
-
-
 }
