@@ -25,7 +25,11 @@ public class MainMenuScreen : MonoBehaviour
     public void Exit()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+   	    Application.Quit();
+#endif
     }
 
     public void ToggleSFX()
