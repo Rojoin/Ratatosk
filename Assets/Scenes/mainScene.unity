@@ -1362,6 +1362,18 @@ Transform:
   m_Father: {fileID: 415807341}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056699253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3211304499710041779, guid: 3ed80d96c21f58449876efbc84e24efb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3211304499567801133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01037ab0b54bc364eb3e8fad5ab61d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091747804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,6 +1849,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -829.46765
       objectReference: {fileID: 0}
+    - target: {fileID: 5286267915267434882, guid: 3ed80d96c21f58449876efbc84e24efb,
+        type: 3}
+      propertyPath: uiController
+      value: 
+      objectReference: {fileID: 2056699253}
     - target: {fileID: 6379807608575316458, guid: 3ed80d96c21f58449876efbc84e24efb,
         type: 3}
       propertyPath: m_AnchorMax.x
