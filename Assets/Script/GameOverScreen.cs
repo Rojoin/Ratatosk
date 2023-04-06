@@ -29,6 +29,16 @@ public class GameOverScreen : MonoBehaviour
         highScore.text = "HighScore: " + highestScore;
     }
 
+#if UNITY_ANDROID
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToMenu();
+        }
+    }
+#endif
+
     public void Retry()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);
