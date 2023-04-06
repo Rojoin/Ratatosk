@@ -166,10 +166,6 @@ public class PlayerController : MonoBehaviour
         CheckBranchPosition();
         uiScore.SetScore(jumpCount);
     }
-    void OnDrawGizmos()
-    {
-
-    }
 
     public bool IsGameplayOn() => gameplayState;
     public bool IsFirstTime() => firstTimeState;

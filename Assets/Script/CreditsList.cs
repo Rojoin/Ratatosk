@@ -22,11 +22,6 @@ public class CreditsList : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnDrawGizmos()
     {
         foreach (TMP_Text item in title)

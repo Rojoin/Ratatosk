@@ -12,12 +12,6 @@ public class MainMenuScreen : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Play()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);

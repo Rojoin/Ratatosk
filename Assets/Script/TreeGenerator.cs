@@ -18,11 +18,6 @@ public class TreeGenerator : MonoBehaviour
         }
     }
 
-
-    void Update()
-    {
-
-    }
     public void Reset()
     {
         int x = 0;

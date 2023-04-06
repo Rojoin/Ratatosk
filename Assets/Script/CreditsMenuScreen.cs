@@ -9,12 +9,6 @@ public class CreditsMenuScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-   
-    void Update()
-    {
-        
-    }
-
     public void Exit()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.button);

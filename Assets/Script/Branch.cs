@@ -11,11 +11,6 @@ public class Branch : MonoBehaviour
     public GameObject acorn;
     bool isPlayerOn = false;
 
-
-    private void Start()
-    {
-
-    }
     void Update()
     {
         switch (freePosition)
