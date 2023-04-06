@@ -2152,11 +2152,6 @@ PrefabInstance:
       objectReference: {fileID: 139249122}
     - target: {fileID: 8321179895117500477, guid: 351883cd186ea1748b42de2ba2b94b4d,
         type: 3}
-      propertyPath: hawkSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 2dbf243d733b5d245ae4493c46c4d837, type: 3}
-    - target: {fileID: 8321179895117500477, guid: 351883cd186ea1748b42de2ba2b94b4d,
-        type: 3}
       propertyPath: sliderImage
       value: 
       objectReference: {fileID: 895945637}

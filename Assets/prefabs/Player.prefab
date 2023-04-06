@@ -111,9 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tree: {fileID: 0}
   squirrel: {fileID: 9204140304638559783}
+  hawk: {fileID: 0}
   pos: 0
   acornSound: {fileID: 8300000, guid: 66c4b07daf8901d44a2b45d6bc2fec21, type: 3}
   bushSound: {fileID: 8300000, guid: e03365ab5a324c0449ae44116a7586b1, type: 3}
+  hawkSound: {fileID: 8300000, guid: 2dbf243d733b5d245ae4493c46c4d837, type: 3}
   sliderImage: {fileID: 0}
   uiScore: {fileID: 0}
   gameSpeed: 2
@@ -124,6 +126,7 @@ MonoBehaviour:
   timer: 20
   maxTimer: 20
   normalizeTime: 1
+  isHawkActive: 0
   jumpMax: 10
 --- !u!1001 &5746815679777246068
 PrefabInstance:
