@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     }
 
     [SerializeField] Position pos;
-    [SerializeField] AudioClip acornSound;
-    [SerializeField] AudioClip bushSound;
+    [SerializeField] AudioClip[] acornSounds;
+    [SerializeField] AudioClip[] bushSounds;
     [SerializeField] AudioClip hawkSound;
 
     public Image sliderImage;
@@ -131,12 +131,12 @@ public class PlayerController : MonoBehaviour
         {
             aliveState = false;
             squirrel.SetActive(false);
-            SoundManager.Instance.PlaySound(bushSound);
+            SoundManager.Instance.PlaySound(bushSounds[Random.Range(0, bushSounds.Length)]);
         }
         else
         {
             tree.GetCurrentBranch().SetPlayerOnBranch(true);
-            SoundManager.Instance.PlaySound(acornSound);
+            SoundManager.Instance.PlaySound(acornSounds[Random.Range(0,acornSounds.Length)]);
             jumpCount++;
             jumpsBeforeSpeedUp++;
         }

@@ -5,7 +5,7 @@ public class InputController : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] TreeGenerator tree;
     [SerializeField] Animator animator;
-    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip[] jumpSounds;
 
     private float lastMoveTime = 0.0f;
 
@@ -53,7 +53,7 @@ public class InputController : MonoBehaviour
 
             lastMoveTime = Time.time;
             animator.SetTrigger("Jump");
-            SoundManager.Instance.PlaySound(jumpSound);
+            SoundManager.Instance.PlaySound(jumpSounds[Random.Range(0, jumpSounds.Length)]);
         }
     }
 }

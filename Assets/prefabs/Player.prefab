@@ -113,8 +113,14 @@ MonoBehaviour:
   squirrel: {fileID: 9204140304638559783}
   hawk: {fileID: 0}
   pos: 0
-  acornSound: {fileID: 8300000, guid: 66c4b07daf8901d44a2b45d6bc2fec21, type: 3}
-  bushSound: {fileID: 8300000, guid: e03365ab5a324c0449ae44116a7586b1, type: 3}
+  acornSounds:
+  - {fileID: 8300000, guid: e99c5179aac1ec94185aa8f3929931e7, type: 3}
+  - {fileID: 8300000, guid: 66c4b07daf8901d44a2b45d6bc2fec21, type: 3}
+  - {fileID: 8300000, guid: b4935ca46ef7f954a8fe1b4aabc157b1, type: 3}
+  bushSounds:
+  - {fileID: 8300000, guid: ee675958d1acb1343b62ed8c3329d250, type: 3}
+  - {fileID: 8300000, guid: e03365ab5a324c0449ae44116a7586b1, type: 3}
+  - {fileID: 8300000, guid: d271f42bf80d7354382cde05b2ccf0bf, type: 3}
   hawkSound: {fileID: 8300000, guid: 2dbf243d733b5d245ae4493c46c4d837, type: 3}
   sliderImage: {fileID: 0}
   uiScore: {fileID: 0}

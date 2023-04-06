@@ -1421,7 +1421,11 @@ MonoBehaviour:
   player: {fileID: 1005882520}
   tree: {fileID: 785137707}
   animator: {fileID: 1335018046}
-  jumpSound: {fileID: 8300000, guid: da6609b2b9ace794ebe47f1f88c219f7, type: 3}
+  jumpSounds:
+  - {fileID: 8300000, guid: da6609b2b9ace794ebe47f1f88c219f7, type: 3}
+  - {fileID: 8300000, guid: 49fd172e590cddf408d18c750fa3c750, type: 3}
+  - {fileID: 8300000, guid: 2908464b7b61ceb4c8f32900fbdd205c, type: 3}
+  - {fileID: 8300000, guid: f42dfa17f7e92f048ac89e5d8bc25f64, type: 3}
 --- !u!1001 &3211304499567801133
 PrefabInstance:
   m_ObjectHideFlags: 0
