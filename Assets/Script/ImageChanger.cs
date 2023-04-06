@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class ImageChanger : MonoBehaviour
 {
-    [SerializeField] private Sprite image, image2;
+    [SerializeField] private Sprite image;
+    [SerializeField] private Sprite image2;
     [SerializeField] private Image currentImage;
 
     private void Start()

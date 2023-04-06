@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     }
 
     [SerializeField] Position pos;
-    [SerializeField] AudioClip acornSound, bushSound, hawkSound;
+    [SerializeField] AudioClip acornSound;
+    [SerializeField] AudioClip bushSound;
+    [SerializeField] AudioClip hawkSound;
 
     public Image sliderImage;
     public UIScore uiScore;

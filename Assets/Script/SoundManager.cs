@@ -3,7 +3,8 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    [SerializeField] private AudioSource musicSource, effectSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource effectSource;
     [SerializeField] public AudioClip button;
 
     private void Awake()

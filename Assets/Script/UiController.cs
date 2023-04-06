@@ -8,7 +8,10 @@ public class UiController : MonoBehaviour
     [SerializeField] GameObject screenInGame;
     [SerializeField] GameObject uiBlur;
     [SerializeField] PlayerController player;
-    [SerializeField] AudioClip menuMusic, gameplayMusic, gameOverMusic, previousClip;
+    [SerializeField] AudioClip menuMusic;
+    [SerializeField] AudioClip gameplayMusic;
+    [SerializeField] AudioClip gameOverMusic;
+    [SerializeField] AudioClip previousClip;
     [SerializeField] AudioSource music;
     public bool creditsOn = false;
 
