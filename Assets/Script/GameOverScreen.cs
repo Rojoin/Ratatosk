@@ -8,7 +8,6 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] TextMeshProUGUI highScore;
     [SerializeField] UIScore scoreValue;
-    private float highiestScore = 0;
 
     void Start()
     {
