@@ -969,7 +969,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3493498905508891987}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e9c9165d9ba57c048a1904ab0e359cd9, type: 3}
+  m_Avatar: {fileID: 9000000, guid: f3396dfbffd13a941a2060d730a5cd19, type: 3}
   m_Controller: {fileID: 9100000, guid: 7e665d01d83daf4469d36b718a879f0e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -980,6 +980,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3501107202573383915
 GameObject:
   m_ObjectHideFlags: 0
