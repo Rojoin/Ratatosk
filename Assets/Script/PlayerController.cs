@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void AddTime()
+    private void AddTime()
     {
         timer += Time.deltaTime * acornValue;
         if (timer > maxTimer)
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public IEnumerator HawkAppears()
+    private IEnumerator HawkAppears()
     {
         bool isHawkMoving = true;
         isHawkActive = true;
