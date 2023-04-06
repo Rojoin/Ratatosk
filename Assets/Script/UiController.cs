@@ -31,10 +31,6 @@ public class UiController : MonoBehaviour
             InGameScreen();
             uiBlur.SetActive(!player.isAlive());
             music.clip = player.isAlive() ? gameplayMusic : gameOverMusic;
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                player.SetGameState(false);
-            }
         }
         else
         {
