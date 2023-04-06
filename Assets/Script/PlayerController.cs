@@ -167,8 +167,6 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGameplayOn() => gameplayState;
 
-    public bool IsFirstTime() => firstTimeState;
-
     public void SetGameState(bool status) => gameplayState = status;
 
     public void SetFirstTimeState(bool status) => firstTimeState = status;
